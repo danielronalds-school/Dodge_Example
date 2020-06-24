@@ -18,6 +18,9 @@ namespace Dodge_Example
         Spaceship spaceship = new Spaceship();
         Random yspeed = new Random();
 
+        bool left, right;
+        string move;
+
 
         public FrmDodge()
         {
@@ -60,6 +63,34 @@ namespace Dodge_Example
             }
             PnlGame.Invalidate();
 
+        }
+
+        private void TmrShip_Tick(object sender, EventArgs e)
+        {
+            if (right) // if right arrow key pressed
+            {
+                move = "right";
+                spaceship.MoveSpaceship(move);
+            }
+            if (left) // if left arrow key pressed
+            {
+                move = "left";
+                spaceship.MoveSpaceship(move);
+            }
+
+        }
+
+        private void FrmDodge_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Left) { left = true; }
+            if (e.KeyData == Keys.Right) { right = true; }
+        }
+
+
+        private void FrmDodge_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Left) { left = false; }
+            if (e.KeyData == Keys.Right) { right = false; }
         }
     }
 }
