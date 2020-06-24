@@ -15,6 +15,7 @@ namespace Dodge_Example
         Graphics g;
         // declare space for an array of 7 objects called planet 
         Planet[] planet = new Planet[7];
+        Spaceship spaceship = new Spaceship();
         Random yspeed = new Random();
 
 
@@ -44,7 +45,7 @@ namespace Dodge_Example
                 planet[i].DrawPlanet(g);
             }
 
-
+            spaceship.DrawSpaceship(g);
         }
 
         private void TmrPlanet_Tick(object sender, EventArgs e)
