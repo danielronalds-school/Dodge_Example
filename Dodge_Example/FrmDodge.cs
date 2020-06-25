@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
 
 namespace Dodge_Example
 {
@@ -26,6 +27,7 @@ namespace Dodge_Example
         public FrmDodge()
         {
             InitializeComponent();
+            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, PnlGame, new object[] { true });
             for (int i = 0; i < 7; i++)
             {
                 int x = 10 + (i * 75);
