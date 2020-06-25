@@ -109,6 +109,22 @@ namespace Dodge_Example
             lives = int.Parse(txtLives.Text);// pass lives entered from textbox to lives variable
         }
 
+        private void MnuStart_Click(object sender, EventArgs e)
+        {
+            score = 0;
+            lblScore.Text = score.ToString();
+            lives = int.Parse(txtLives.Text);// pass lives entered from textbox to lives variable
+            TmrPlanet.Enabled = true;
+            TmrShip.Enabled = true;
+        }
+
+        private void MnuStop_Click(object sender, EventArgs e)
+        {
+            TmrShip.Enabled = false;
+            TmrPlanet.Enabled = false;
+
+        }
+
         private void FrmDodge_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Left) { left = true; }
